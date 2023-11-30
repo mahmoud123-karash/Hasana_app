@@ -58,6 +58,7 @@ class PlayerCubit extends Cubit<PlayerStates> {
     player.pause().then((value) {
       isPaly = false;
       isplay(false);
+      player.dispose();
       emit(SuccessStopState());
     }).catchError((error) {
       emit(ErrorStopState());
