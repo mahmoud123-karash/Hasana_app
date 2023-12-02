@@ -2,6 +2,7 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_islamic_icons/flutter_islamic_icons.dart';
 import 'package:quran_app/core/shared/assets.dart';
+import 'package:quran_app/core/shared/azkar.dart';
 import 'package:quran_app/features/home/presentation/views/home_screen.dart';
 import 'package:quran_app/features/listen/presentation/views/reciter_screen.dart';
 import 'package:quran_app/features/mosaf/presentation/views/mosaf_screen.dart';
@@ -54,7 +55,35 @@ List<String> azkarNames(context) => [
       S.of(context).adayak,
       S.of(context).adayaa,
       S.of(context).azkarw,
+      'دعاء دخول الخلاء',
+      'دعاء الخروج من الخلاء',
+      'ذكر الخروج من المنزل',
+      'ذكر الدخول للمنزل',
+      'أذكار الآذان',
+      'دعاء الاستفتاح',
+      'الدعاء بعد التشهد',
+      'فضل التسبيح',
     ];
+
+List<String> azkatIamges = [
+  Azkar.azkar1,
+  Azkar.azkar2,
+  Azkar.azkar3,
+  Azkar.azkar4,
+  Azkar.azkar5,
+  Azkar.azkar6,
+  Azkar.azkar7,
+  Azkar.azkar8,
+  Azkar.azkar9,
+  Azkar.azkar10,
+  Azkar.azkar11,
+  Azkar.azkar12,
+  Azkar.azkar13,
+  Azkar.azkar14,
+  Azkar.azkar15,
+  Azkar.azkar16,
+  Azkar.azkar17,
+];
 
 List<String> names = [
   "أذكار الصباح",
@@ -65,7 +94,15 @@ List<String> names = [
   "أذكار الاستيقاظ",
   "أدعية قرآنية",
   "أدعية الأنبياء",
-  "أذكارالوضوء"
+  "أذكارالوضوء",
+  'دعاء دخول الخلاء',
+  'دعاء الخروج من الخلاء',
+  'ذكر الخروج من المنزل',
+  'ذكر الدخول للمنزل',
+  'أذكار الآذان',
+  'دعاء الاستفتاح',
+  'الدعاء بعد التشهد',
+  'فضل التسبيح والتكبير',
 ];
 
 List<String> juzNames = [

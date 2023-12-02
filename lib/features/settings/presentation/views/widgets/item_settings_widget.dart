@@ -3,8 +3,12 @@ import 'package:flutter/material.dart';
 import '../../../../../core/contants/constants.dart';
 
 class ItemSettingsWidget extends StatelessWidget {
-  const ItemSettingsWidget(
-      {super.key, required this.text, required this.icon, required this.ontap});
+  const ItemSettingsWidget({
+    super.key,
+    required this.text,
+    required this.icon,
+    required this.ontap,
+  });
   final String text;
   final IconData icon;
   final VoidCallback ontap;

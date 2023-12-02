@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:quran_app/core/contants/constants.dart';
 import 'package:quran_app/core/shared/components.dart';
 import 'package:quran_app/features/about_app/presentation/views/about_app_screen.dart';
+import 'package:quran_app/features/settings/presentation/views/widgets/firebase_notification_switch_widget.dart';
 import 'package:quran_app/features/settings/presentation/views/widgets/item_settings_widget.dart';
 import 'package:quran_app/features/settings/presentation/views/widgets/theme_item_widget.dart';
 import '../../../../core/services/services.dart';
 import '../../../../generated/l10n.dart';
-import '../../../notification_settings/presentation/views/notification_settings_screen.dart';
-import 'widgets/dialog_noti_permission_widget.dart';
 import 'widgets/soon_list_tile_widget.dart';
 
 class SettingScreen extends StatelessWidget {
@@ -24,24 +23,7 @@ class SettingScreen extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          ItemSettingsWidget(
-            ontap: () {
-              requestNotificationPermissions().then(
-                (value) {
-                  if (value!) {
-                    navigatorTo(context, const NotificationSettingsScreen());
-                  } else {
-                    showDialog(
-                      context: context,
-                      builder: (context) => const DialogNotiPermissionWidget(),
-                    );
-                  }
-                },
-              );
-            },
-            text: 'إعدادات الإشعارات',
-            icon: Icons.notifications_on_outlined,
-          ),
+          const FirebaseNotificationSwitchWIdget(),
           const ThemeItemWidget(),
           const SoonListTileWidget(
             text: 'لغة التطبيق',

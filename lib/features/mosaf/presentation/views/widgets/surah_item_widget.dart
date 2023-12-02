@@ -4,9 +4,14 @@ import 'page_data_widget.dart';
 import 'surah_image_widget.dart';
 
 class SurahItemWidget extends StatelessWidget {
-  const SurahItemWidget({super.key, required this.index, required this.image});
+  const SurahItemWidget(
+      {super.key,
+      required this.index,
+      required this.image,
+      required this.count});
   final int index;
   final String image;
+  final int count;
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +24,11 @@ class SurahItemWidget extends StatelessWidget {
         const SizedBox(
           height: 5,
         ),
-        SurahImageWidget(
-          image: image,
-        ),
+        count != 604
+            ? const Center(child: CircularProgressIndicator())
+            : SurahImageWidget(
+                image: image,
+              ),
         PageAndJuzTextWidget(
           index: index,
         )

@@ -8,6 +8,7 @@ import 'package:quran_app/features/salah/presetation/views/widgets/salah_content
 import 'package:quran_app/features/salah/presetation/views/widgets/salah_error_widget.dart';
 import 'package:quran_app/features/salah/presetation/views/widgets/salah_loading_widget.dart';
 import '../../../../generated/l10n.dart';
+import 'widgets/salah_notification_icon_widget.dart';
 
 class SalahScreen extends StatefulWidget {
   const SalahScreen({super.key});
@@ -29,6 +30,9 @@ class _SalahScreenState extends State<SalahScreen> {
         appBar: AppBar(
           title: Text(S.of(context).Alsalash),
           centerTitle: true,
+          actions: const [
+            SalahNotificationIconWidget(),
+          ],
         ),
         body: BlocBuilder<SalahCubit, SalahStates>(
           builder: (context, state) {

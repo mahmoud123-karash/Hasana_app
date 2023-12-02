@@ -16,6 +16,15 @@ class _SearchScreenState extends State<SearchScreen> {
   final TextEditingController controller = TextEditingController();
 
   @override
+  void initState() {
+    Future.delayed(const Duration(milliseconds: 500), () {
+      SearchCubit.get(context).getVerses();
+    });
+
+    super.initState();
+  }
+
+  @override
   void dispose() {
     controller.dispose();
     super.dispose();
@@ -31,7 +40,7 @@ class _SearchScreenState extends State<SearchScreen> {
       body: BlocBuilder<SearchCubit, SearchStates>(
         builder: (context, state) {
           var cubit = SearchCubit.get(context);
-          if (cubit.verses.isNotEmpty) {
+          if (cubit.verses.length == 6236) {
             return SerachPageWidget(
               controller: controller,
               cubit: cubit,

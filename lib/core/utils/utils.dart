@@ -58,3 +58,11 @@ void setAzkarNotification() {
     }
   }
 }
+
+void mainNotification() {
+    setAzkarNotification();
+  double cachedLatitude = cache_helper.getData(key: 'latitude') ?? 0.0;
+  if (cachedLatitude != 0.0) {
+    setSalwatNotifications();
+  }
+}

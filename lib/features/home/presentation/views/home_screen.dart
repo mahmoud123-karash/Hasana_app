@@ -6,9 +6,6 @@ import 'package:quran_app/features/home/presentation/views/widgets/content_item_
 import 'package:quran_app/features/home/presentation/views/widgets/content_text_widget.dart';
 import 'package:quran_app/features/home/presentation/views/widgets/home_text_widget.dart';
 import 'package:quran_app/features/home/presentation/views/widgets/badge_notification_icon_widget.dart';
-import 'package:quran_app/features/mosaf/presentation/manager/page_cubit/page_cubit.dart';
-import 'package:quran_app/features/mosaf/presentation/manager/tafsser_cubit/tafsser_cubit.dart';
-import 'package:quran_app/features/search/presentation/manager/search_cubit.dart';
 import '../../../../core/contants/constants.dart';
 import '../../../../core/utils/firebase_messging.dart';
 import '../../../../generated/l10n.dart';
@@ -26,20 +23,12 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     NotificationCubit.get(context).getNotification();
-    TafsserCubit.get(context).getTafsserData();
-    PageCubit.get(context).readImages();
     onMessage();
     bool isSub = cache_helper.getData(key: 'issub') ?? true;
     if (isSub) {
       subscribeToTopic();
     }
     super.initState();
-  }
-
-  @override
-  void didChangeDependencies() {
-    SearchCubit.get(context).getVerses();
-    super.didChangeDependencies();
   }
 
   @override

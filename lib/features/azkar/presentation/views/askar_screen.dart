@@ -1,27 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quran_app/core/utils/utils.dart';
 import 'package:quran_app/features/azkar/data/data_source/azkar_remote_data_source.dart';
 import 'package:quran_app/features/azkar/data/repo/azkar_repo_impl.dart';
 import 'package:quran_app/features/azkar/presentation/manager/azkar_cubit/azkar_cubit.dart';
 import 'package:quran_app/features/azkar/presentation/manager/azkar_cubit/azkar_states.dart';
-import 'package:quran_app/features/azkar/presentation/views/widgets/azkar_list_view_widget.dart';
+import 'package:quran_app/features/azkar/presentation/views/widgets/azkar_grid_view_widget.dart';
 import 'package:quran_app/features/azkar/presentation/views/widgets/azkar_loading_widget.dart';
 import 'package:quran_app/generated/l10n.dart';
 
-class AskarScreen extends StatefulWidget {
+import 'widgets/azkar_notification_icon_widget.dart';
+
+class AskarScreen extends StatelessWidget {
   const AskarScreen({super.key});
-
-  @override
-  State<AskarScreen> createState() => _AskarScreenState();
-}
-
-class _AskarScreenState extends State<AskarScreen> {
-  @override
-  void initState() {
-    setAzkarNotification();
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,12 +26,16 @@ class _AskarScreenState extends State<AskarScreen> {
           title: Text(
             S.of(context).azkar,
           ),
-          centerTitle: true,
+          actions: const [
+            AzkarNotificationIconWidget(),
+          ],
         ),
         body: BlocBuilder<AzkarCubit, AzkarStates>(
           builder: (context, state) {
             if (state is SuccessReadAzkarState) {
-              return AzkarListViewWIdget(azkar: state.azkar);
+              return AzkarGridViewWidget(
+                azkar: state.azkar,
+              );
             } else {
               return const AzkarLoadingWidget();
             }

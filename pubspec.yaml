@@ -115,15 +115,16 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/quran_images/
+    - assets/azkar/
     - assets/images/
     - assets/json/
     - assets/sound/
     - assets/fonts/
 
 flutter_assets:
-  assets_path: assets/quran_images/
+  assets_path: assets/azkar/
   output_path: lib/core/shared
-  filename: quran.dart
+  filename: azkar.dart
   field_prefix: null
 
   # An image asset can refer to one or more resolution-specific "variants", see

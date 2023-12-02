@@ -132,7 +132,11 @@ String nextSalah(PrayerTimes prayerTimes) {
   } else if (prayer == 'sunrise') {
     return 'شروق الشمس';
   } else if (prayer == 'dhuhr') {
-    return 'الظهر';
+    if (dayname == 'الجمعة') {
+      return 'الجمعة';
+    } else {
+      return 'الظهر';
+    }
   } else if (prayer == 'asr') {
     return 'العصر';
   } else if (prayer == 'maghrib') {

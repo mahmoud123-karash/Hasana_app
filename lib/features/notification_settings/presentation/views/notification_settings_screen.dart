@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quran_app/core/cache/shared_preference.dart';
 import 'package:quran_app/features/notification_settings/presentation/manager/adhan_cubit/adhan_cubit.dart';
-import 'package:quran_app/features/notification_settings/presentation/views/widgets/firebase_notification_switch_widget.dart';
 import 'package:quran_app/features/notification_settings/presentation/views/widgets/no_salwat_widget.dart';
 import 'package:quran_app/features/notification_settings/presentation/views/widgets/text_name_noti_widget.dart';
 import 'widgets/adan_sound_widget.dart';
@@ -11,7 +10,13 @@ import 'widgets/azkar_sabah_switch_widget.dart';
 import 'widgets/salwat_switch_widget.dart';
 
 class NotificationSettingsScreen extends StatefulWidget {
-  const NotificationSettingsScreen({super.key});
+  const NotificationSettingsScreen({
+    super.key,
+    required this.sal,
+    required this.azk,
+  });
+  final bool sal;
+  final bool azk;
 
   @override
   State<NotificationSettingsScreen> createState() =>
@@ -39,19 +44,20 @@ class _NotificationSettingsScreenState
         padding: const EdgeInsets.all(8.0),
         child: ListView(
           children: [
-            const FirebaseNotificationSwitchWIdget(),
-            const TextNameNotiWidget(text: 'الأذكار'),
-            const AzkarSabahSwitchWidget(),
-            const AzkarMasahSwitchWidget(),
-            const SizedBox(height: 30),
-            if (cache_helper.getData(key: 'latitude') != null)
-              const SlawatSwitchWidget(),
-            const SizedBox(height: 30),
-            if (cache_helper.getData(key: 'latitude') != null)
-              BlocProvider(
-                create: (context) => AdhanCubit(),
-                child: const AdanSoundWidget(),
-              ),
+            if (widget.azk) const TextNameNotiWidget(text: 'الأذكار'),
+            if (widget.azk) const AzkarSabahSwitchWidget(),
+            if (widget.azk) const AzkarMasahSwitchWidget(),
+            if (widget.azk) const SizedBox(height: 30),
+            if (widget.sal)
+              if (cache_helper.getData(key: 'latitude') != null)
+                if (widget.sal) const SlawatSwitchWidget(),
+            if (widget.sal) const SizedBox(height: 30),
+            if (widget.sal)
+              if (cache_helper.getData(key: 'latitude') != null)
+                BlocProvider(
+                  create: (context) => AdhanCubit(),
+                  child: const AdanSoundWidget(),
+                ),
             if (latitude == 0.0) const NoSalwatWidget(),
           ],
         ),

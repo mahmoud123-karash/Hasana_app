@@ -37,7 +37,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "azkarn": MessageLookupByLibrary.simpleMessage("أذكار النوم"),
         "azkarsl": MessageLookupByLibrary.simpleMessage("أذكار بعدالصلاة"),
         "azkart": MessageLookupByLibrary.simpleMessage("تسابيح"),
-        "azkarw": MessageLookupByLibrary.simpleMessage("أذكارالوضوء"),
+        "azkarw": MessageLookupByLibrary.simpleMessage("أذكار الوضوء"),
         "cancel": MessageLookupByLibrary.simpleMessage("الغاء"),
         "changelang":
             MessageLookupByLibrary.simpleMessage("من فضلك اختر اللغة"),

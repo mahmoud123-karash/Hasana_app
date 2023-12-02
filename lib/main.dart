@@ -25,6 +25,7 @@ import 'package:quran_app/features/tasbih/data/repo/tasbih_repo_impl.dart';
 import 'package:quran_app/features/tasbih/domain/use_cases/update_tasbih_use_case.dart';
 import 'package:quran_app/features/tasbih/domain/use_cases/zero_count_tasabih_use_case.dart';
 import 'package:quran_app/features/tasbih/presentation/manager/tasbih_cubit/tasbih_cubit.dart';
+import 'core/utils/utils.dart';
 import 'features/tasbih/domain/use_cases/add_new_tasbih_use_case.dart';
 import 'features/tasbih/domain/use_cases/delete_tasbih_use_case.dart';
 import 'generated/l10n.dart';
@@ -45,6 +46,7 @@ void main() async {
   await cache_helper.init();
   setLocator();
   generateVerseOfDay();
+  mainNotification();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );

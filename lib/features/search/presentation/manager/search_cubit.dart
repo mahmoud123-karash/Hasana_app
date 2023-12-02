@@ -24,6 +24,7 @@ class SearchCubit extends Cubit<SearchStates> {
           verses.add(verse);
         }
       }
+      emit(LoadingSearchState());
       if (kDebugMode) {
         print(verses.length);
       }

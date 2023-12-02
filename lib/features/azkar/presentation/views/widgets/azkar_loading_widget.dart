@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quran_app/core/contants/constants.dart';
-import 'package:quran_app/features/azkar/presentation/views/widgets/azkar_list_view_widget.dart';
+import 'package:quran_app/features/azkar/presentation/views/widgets/azkar_grid_view_widget.dart';
 import 'package:shimmer/shimmer.dart';
 
 class AzkarLoadingWidget extends StatelessWidget {
@@ -12,7 +12,7 @@ class AzkarLoadingWidget extends StatelessWidget {
       gradient: LinearGradient(
         colors: [secondColor!, thirdColor!],
       ),
-      child: const AzkarListViewWIdget(azkar: {}),
+      child: const AzkarGridViewWidget(azkar: {}),
     );
   }
 }
