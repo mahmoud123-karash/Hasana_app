@@ -9,8 +9,10 @@ class NotificationRemoteDataSourceImpl extends NotificationRemoteDataSource {
   @override
   Future<List<NotificationModel>> getNitification() async {
     List<NotificationModel> notifications = [];
-    var data =
-        await FirebaseFirestore.instance.collection('notifications').get();
+    var data = await FirebaseFirestore.instance
+        .collection('notifications')
+        .orderBy('time', descending: true)
+        .get();
     for (var element in data.docs) {
       notifications.add(
         NotificationModel.fromJson(

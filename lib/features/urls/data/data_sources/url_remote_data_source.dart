@@ -8,8 +8,10 @@ abstract class UrlRemoteDataSource {
 class UrlRemoteDataSourceImpl extends UrlRemoteDataSource {
   @override
   Future<List<UrlModel>> getUrls() async {
-    var data =
-        await FirebaseFirestore.instance.collection('urls_collection').get();
+    var data = await FirebaseFirestore.instance
+        .collection('urls_collection')
+        .orderBy('time', descending: true)
+        .get();
     List<UrlModel> urls = [];
     for (var e in data.docs) {
       urls.add(UrlModel.fromJson(e.data()));
