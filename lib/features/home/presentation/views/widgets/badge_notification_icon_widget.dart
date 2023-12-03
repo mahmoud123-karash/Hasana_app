@@ -35,7 +35,7 @@ class _BadgeNotificationIconWidgetState
             });
             navigatorTo(context, const NotificationScreen());
           },
-          icon: badge == 0
+          icon: badge <= 0
               ? const NotificationIconWidget()
               : Padding(
                   padding: const EdgeInsets.only(left: 10),
@@ -44,7 +44,7 @@ class _BadgeNotificationIconWidgetState
                       badgeColor: myColor!,
                     ),
                     badgeContent: Text(
-                      badge > 0 ? '$badge' : '',
+                      '$badge',
                       style: TextStyle(
                         color: whiteColor,
                       ),
