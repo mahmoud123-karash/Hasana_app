@@ -55,7 +55,7 @@ class PlayerCubit extends Cubit<PlayerStates> {
 
   void stopAudio() {
     emit(LoadingStopState());
-    player.pause().then((value) {
+    player.stop().then((value) {
       isPaly = false;
       isplay(false);
       emit(SuccessStopState());

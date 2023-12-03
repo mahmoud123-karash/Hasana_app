@@ -6,7 +6,6 @@ import 'package:quran_app/features/home/presentation/views/widgets/content_item_
 import 'package:quran_app/features/home/presentation/views/widgets/content_text_widget.dart';
 import 'package:quran_app/features/home/presentation/views/widgets/home_text_widget.dart';
 import 'package:quran_app/features/home/presentation/views/widgets/badge_notification_icon_widget.dart';
-import 'package:quran_app/features/listen/presentation/manager/player_cubit/player_cubit.dart';
 import '../../../../core/contants/constants.dart';
 import '../../../../core/utils/firebase_messging.dart';
 import '../../../../generated/l10n.dart';
@@ -20,7 +19,7 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
+class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     NotificationCubit.get(context).getNotification();
@@ -30,28 +29,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       subscribeToTopic();
     }
     super.initState();
-  }
-
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    switch (state) {
-      case AppLifecycleState.resumed:
-        print("app in resumed");
-        break;
-      case AppLifecycleState.inactive:
-        print("app in inactive");
-        break;
-      case AppLifecycleState.paused:
-        PlayerCubit.get(context).player.dispose();
-        print("app in paused");
-        break;
-      case AppLifecycleState.detached:
-        print("app in detached");
-        break;
-      case AppLifecycleState.hidden:
-      // TODO: Handle this case.
-    }
-    super.didChangeAppLifecycleState(state);
   }
 
   @override
