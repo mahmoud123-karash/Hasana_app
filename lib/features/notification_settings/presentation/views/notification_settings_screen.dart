@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quran_app/core/cache/shared_preference.dart';
 import 'package:quran_app/features/notification_settings/presentation/manager/adhan_cubit/adhan_cubit.dart';
-import 'package:quran_app/features/notification_settings/presentation/views/widgets/no_salwat_widget.dart';
 import 'package:quran_app/features/notification_settings/presentation/views/widgets/text_name_noti_widget.dart';
 import 'widgets/adan_sound_widget.dart';
 import 'widgets/azkar_masah_switch_widget.dart';
@@ -58,7 +57,6 @@ class _NotificationSettingsScreenState
                   create: (context) => AdhanCubit(),
                   child: const AdanSoundWidget(),
                 ),
-            if (latitude == 0.0) const NoSalwatWidget(),
           ],
         ),
       ),

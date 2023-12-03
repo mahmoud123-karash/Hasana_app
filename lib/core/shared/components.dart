@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quran_app/core/contants/constants.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:quran_app/core/services/navidation_route.dart';
 
 void navigatorTo(context, widget) =>
     Navigator.of(context).push(createRoute(widget));
@@ -25,24 +26,3 @@ Future<bool?> myToast(
 
 void mysnackbar({required BuildContext context, required String text}) =>
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(text)));
-
-Route createRoute(Widget widget) {
-  return PageRouteBuilder(
-    transitionDuration: const Duration(
-      milliseconds: 600,
-    ),
-    pageBuilder: (context, animation, secondaryAnimation) => widget,
-    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      const begin = Offset(2, 0);
-      const end = Offset.zero;
-      const curve = Curves.ease;
-      final tween =
-          Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-      final offsetAnimation = animation.drive(tween);
-      return SlideTransition(
-        position: offsetAnimation,
-        child: child,
-      );
-    },
-  );
-}

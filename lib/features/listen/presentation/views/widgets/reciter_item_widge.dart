@@ -5,12 +5,13 @@ import 'package:quran_app/core/shared/components.dart';
 import 'package:quran_app/features/listen/presentation/views/files_audio_screen.dart';
 
 class ReciterItemWidget extends StatelessWidget {
-  const ReciterItemWidget(
-      {super.key,
-      required this.text,
-      required this.image,
-      required this.sText,
-      required this.id});
+  const ReciterItemWidget({
+    super.key,
+    required this.text,
+    required this.image,
+    required this.sText,
+    required this.id,
+  });
   final String text;
   final String image;
   final String sText;

@@ -17,7 +17,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   void initState() {
-    Future.delayed(const Duration(milliseconds: 500), () {
+    Future.delayed(const Duration(milliseconds: 600), () {
       SearchCubit.get(context).getVerses();
     });
 
