@@ -25,7 +25,7 @@ class ProgressDownloadBuilderWidget extends StatelessWidget {
         var cubit = AudioCubit.get(context);
         int cindex = cache_helper.getData(key: 'sindex') ?? 0;
         int cid = cache_helper.getData(key: 'rindex') ?? 0;
-        if (cubit.isExits[index]) {
+        if (cubit.isExits.contains('$index$id')) {
           if (cindex == index && cid == id) {
             return isPlay
                 ? const PlayAndPauseIconWidget(

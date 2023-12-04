@@ -14,25 +14,29 @@ class AudioCubit extends Cubit<AudioStates> {
   final DownloadUseCase downloadUseCase;
 
   int index = 150;
-  List<bool> isExits = [];
+  List<String> isExits = [];
   void getFilePath({required int id}) async {
     isExits.clear();
     for (int i = 0; i < 114; i++) {
       File(
         '${(await getTemporaryDirectory()).path}$i $id',
       ).exists().then((value) {
-        isExits.add(value);
+        if (value) {
+          isExits.add('$i$id');
+        }
       });
     }
     emit(LoadingGetpathAudioState());
   }
 
+  bool isDownloading = false;
   double progress = 0.0;
   void downloadAudio({
     required int surahIndex,
     required int id,
     required BuildContext context,
   }) async {
+    isDownloading = true;
     emit(LoadingDownloadAudioState());
     var result = await downloadUseCase.download(
       id: id,
@@ -49,6 +53,8 @@ class AudioCubit extends Cubit<AudioStates> {
       if (kDebugMode) {
         print(r);
       }
+      isDownloading = false;
+      progress = 0.0;
       mysnackbar(context: context, text: 'تم التنزيل بنجاح');
       emit(SuccessDownloadAudioState(r));
     });

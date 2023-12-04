@@ -38,11 +38,15 @@ class ItemSurahWidget extends StatelessWidget {
         if (await File(
           '${(await getTemporaryDirectory()).path}$index $id',
         ).exists()) {
-          saveReciterImage(image);
-          saveReciterName(name);
-          saveSurahName(getSurahNameArabic(index + 1));
-          navigatorTo(
-              context, PlayerScreen(isHome: false, id: id, index: index));
+          if (AudioCubit.get(context).isDownloading) {
+            mysnackbar(context: context, text: 'يرجي الإنتظار لإكمال التنزيل');
+          } else {
+            saveReciterImage(image);
+            saveReciterName(name);
+            saveSurahName(getSurahNameArabic(index + 1));
+            navigatorTo(
+                context, PlayerScreen(isHome: false, id: id, index: index));
+          }
         } else {
           if (await InternetConnectionChecker().hasConnection) {
             AudioCubit.get(context).downloadAudio(
