@@ -98,22 +98,24 @@ class MyApp extends StatelessWidget {
             ),
         ),
       ],
-      child: BlocBuilder<ThemeCubit, ThemeStates>(builder: (context, state) {
-        bool isDark = ThemeCubit.get(context).isDark;
-        return MaterialApp(
-          locale: const Locale('ar'),
-          localizationsDelegates: const [
-            S.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          supportedLocales: S.delegate.supportedLocales,
-          debugShowCheckedModeBanner: false,
-          theme: isDark ? darkmode : lightmode,
-          home: const NavBarScreen(),
-        );
-      }),
+      child: BlocBuilder<ThemeCubit, ThemeStates>(
+        builder: (context, state) {
+          bool isDark = ThemeCubit.get(context).isDark;
+          return MaterialApp(
+            locale: const Locale('ar'),
+            localizationsDelegates: const [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: S.delegate.supportedLocales,
+            debugShowCheckedModeBanner: false,
+            theme: isDark ? darkmode : lightmode,
+            home: const NavBarScreen(),
+          );
+        },
+      ),
     );
   }
 }

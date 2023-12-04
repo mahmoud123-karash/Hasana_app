@@ -6,8 +6,12 @@ import 'package:quran_app/features/listen/presentation/manager/audio_cubit/audio
 import 'package:quran_app/features/listen/presentation/views/widgets/list_view_surah_widget.dart';
 
 class ListViewBuilderWidget extends StatefulWidget {
-  const ListViewBuilderWidget(
-      {super.key, required this.image, required this.name, required this.id});
+  const ListViewBuilderWidget({
+    super.key,
+    required this.image,
+    required this.name,
+    required this.id,
+  });
   final String image;
   final String name;
   final int id;

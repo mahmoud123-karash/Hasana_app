@@ -13,7 +13,7 @@ class ProgressDownloadWidget extends StatelessWidget {
           value: progress,
         ),
         Text(
-          progress.toStringAsFixed(2),
+          "${(progress * 100).toStringAsFixed(0)}%",
           style: const TextStyle(
             fontSize: 12,
             fontWeight: FontWeight.w500,

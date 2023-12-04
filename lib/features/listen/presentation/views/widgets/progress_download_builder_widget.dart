@@ -8,8 +8,12 @@ import '../../manager/audio_cubit/audio_states.dart';
 import 'progress_download_widget.dart';
 
 class ProgressDownloadBuilderWidget extends StatelessWidget {
-  const ProgressDownloadBuilderWidget(
-      {super.key, required this.index, required this.isPlay, required this.id});
+  const ProgressDownloadBuilderWidget({
+    super.key,
+    required this.index,
+    required this.isPlay,
+    required this.id,
+  });
   final int index;
   final int id;
   final bool isPlay;
