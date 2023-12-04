@@ -57,9 +57,6 @@ class _MosafDrawerWidgetState extends State<MosafDrawerWidget> {
                 });
               },
             ),
-            const SizedBox(
-              height: 20,
-            ),
             Expanded(
               child: index == 1
                   ? const JuzListViewWidget()
