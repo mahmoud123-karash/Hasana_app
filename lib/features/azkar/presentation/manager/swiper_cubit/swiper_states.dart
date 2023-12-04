@@ -31,3 +31,5 @@ class ErrorShareState extends SwiperStates {
 
   ErrorShareState(this.error);
 }
+
+class SuccessSaveIndxeState extends SwiperStates {}

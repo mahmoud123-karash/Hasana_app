@@ -2,6 +2,7 @@ import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quran_app/core/cache/save_data.dart';
 import 'package:quran_app/core/contants/constants.dart';
 import 'package:quran_app/features/azkar/domain/repo/akar_details_repo.dart';
 import 'package:quran_app/features/azkar/presentation/manager/swiper_cubit/swiper_states.dart';
@@ -34,6 +35,11 @@ class SwiperCubit extends Cubit<SwiperStates> {
       }
       emit(ErrorDecrementState(error));
     });
+  }
+
+  void saveAzkarCIndex(index) {
+    saveAzkarIndex(index);
+    emit(SuccessSaveIndxeState());
   }
 
   void shareAzkarText(
