@@ -42,7 +42,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
     SchedulerBinding.instance.addPostFrameCallback((_) {
       if (PlayerCubit.get(context).isPaly) {
         if (sIndex != widget.index || sid != widget.id) {
-          PlayerCubit.get(context).stopAudio();
+          PlayerCubit.get(context).pauseAudio();
           PlayerCubit.get(context).playAudio(
             newposition: widget.isHome
                 ? Duration(seconds: cachedPosition)
@@ -54,9 +54,8 @@ class _PlayerScreenState extends State<PlayerScreen> {
         }
       } else {
         PlayerCubit.get(context).playAudio(
-          newposition: widget.isHome
-              ? Duration(seconds: cachedPosition)
-              : PlayerCubit.get(context).position,
+          newposition:
+              widget.isHome ? Duration(seconds: cachedPosition) : Duration.zero,
           context: context,
           id: widget.id,
           index: widget.index,

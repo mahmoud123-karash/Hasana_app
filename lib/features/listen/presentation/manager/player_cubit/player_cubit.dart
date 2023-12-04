@@ -4,7 +4,6 @@ import 'package:path_provider/path_provider.dart';
 import 'package:quran_app/core/cache/save_data.dart';
 import 'package:quran_app/features/listen/presentation/manager/player_cubit/player_states.dart';
 import 'package:audioplayers/audioplayers.dart';
-import 'package:quran_app/generated/l10n.dart';
 
 class PlayerCubit extends Cubit<PlayerStates> {
   PlayerCubit() : super(InitialPlayerState());
@@ -14,7 +13,6 @@ class PlayerCubit extends Cubit<PlayerStates> {
   bool isPaly = false;
   Duration position = Duration.zero;
   Duration duration = Duration.zero;
-  String noInternetM(context) => S.of(context).internet;
 
   void playAudio({
     required int index,
@@ -56,6 +54,17 @@ class PlayerCubit extends Cubit<PlayerStates> {
   void stopAudio() {
     emit(LoadingStopState());
     player.stop().then((value) {
+      isPaly = false;
+      isplay(false);
+      emit(SuccessStopState());
+    }).catchError((error) {
+      emit(ErrorStopState());
+    });
+  }
+
+  void pauseAudio() {
+    emit(LoadingStopState());
+    player.pause().then((value) {
       isPaly = false;
       isplay(false);
       emit(SuccessStopState());
