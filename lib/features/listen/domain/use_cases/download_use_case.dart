@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:quran_app/core/api/dio_helper.dart';
 import 'package:quran_app/core/errors/failure.dart';
 import 'package:quran_app/features/listen/data/models/audio_model/audio_model.dart';
@@ -34,9 +35,10 @@ class DownloadUseCase extends UseCase {
         urls = l;
       });
     }
-    String filePath = await dioHelper.downloadAudio(
+    String filePath = '${(await getTemporaryDirectory()).path}$surahIndex $id';
+    await dioHelper.downloadAudio(
       uri: urls[surahIndex].audioUrl!,
-      path: '$surahIndex $id',
+      filePath: filePath,
       onReceiveProgress: onReceiveProgress,
     );
     if (failure != null) {

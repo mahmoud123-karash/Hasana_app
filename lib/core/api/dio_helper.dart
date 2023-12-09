@@ -14,10 +14,9 @@ class DioHelper {
 
   Future<String> downloadAudio({
     required String uri,
-    required String path,
+    required String filePath,
     required Function(int, int) onReceiveProgress,
   }) async {
-    String filePath = (await getTemporaryDirectory()).path + path;
     await dio.download(
       uri,
       filePath,
