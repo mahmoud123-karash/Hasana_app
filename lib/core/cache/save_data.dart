@@ -166,3 +166,8 @@ void saveCount(count) => cache_helper.saveData(
       key: 'count',
       value: count,
     );
+
+void saveDownload(value) => cache_helper.saveData(
+      key: 'download',
+      value: value,
+    );

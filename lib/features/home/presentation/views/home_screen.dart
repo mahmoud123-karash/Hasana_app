@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     NotificationCubit.get(context).getNotification();
-    DownloadCubit.get(context).dowmload();
+    DownloadCubit.get(context).download();
     onMessage();
     bool isSub = cache_helper.getData(key: 'issub') ?? true;
     if (isSub) {

@@ -8,11 +8,9 @@ class SurahItemWidget extends StatelessWidget {
     super.key,
     required this.index,
     required this.image,
-    required this.count,
   });
   final int index;
   final String image;
-  final int count;
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +23,9 @@ class SurahItemWidget extends StatelessWidget {
         const SizedBox(
           height: 5,
         ),
-        count != 604
-            ? const Center(child: CircularProgressIndicator())
-            : SurahImageWidget(
-                image: image,
-              ),
+        SurahImageWidget(
+          image: image,
+        ),
         PageAndJuzTextWidget(
           index: index,
         )

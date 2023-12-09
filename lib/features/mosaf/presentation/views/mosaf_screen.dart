@@ -20,7 +20,7 @@ class MosafScreen extends StatelessWidget {
       body: BlocBuilder<DownloadCubit, DownloadStates>(
         builder: (context, state) {
           if (state is SuccessDownloadState) {
-            return PageViewWidget(images: state.paths);
+            return const PageViewWidget();
           } else if (state is ErrorDownloadState) {
             return ErrorMoasfWidget(message: state.message);
           } else if (state is LoadingDownloadState) {

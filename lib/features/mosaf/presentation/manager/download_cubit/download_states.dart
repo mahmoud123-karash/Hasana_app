@@ -8,11 +8,7 @@ class LoadingDownloadState extends DownloadStates {
   LoadingDownloadState(this.count);
 }
 
-class SuccessDownloadState extends DownloadStates {
-  final List<String> paths;
-
-  SuccessDownloadState(this.paths);
-}
+class SuccessDownloadState extends DownloadStates {}
 
 class ErrorDownloadState extends DownloadStates {
   final String message;

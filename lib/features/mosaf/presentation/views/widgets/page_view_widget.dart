@@ -8,8 +8,7 @@ import 'package:quran_app/features/mosaf/presentation/manager/tafsser_cubit/tafs
 import 'package:quran_app/features/mosaf/presentation/views/widgets/surah_item_widget.dart';
 
 class PageViewWidget extends StatefulWidget {
-  const PageViewWidget({super.key, required this.images});
-  final List<String> images;
+  const PageViewWidget({super.key});
 
   @override
   State<PageViewWidget> createState() => _PageViewWidgetState();
@@ -42,8 +41,8 @@ class _PageViewWidgetState extends State<PageViewWidget> {
             itemCount: 604,
             itemBuilder: (context, index) => SurahItemWidget(
               index: index,
-              image: widget.images[index],
-              count: widget.images.length,
+              image:
+                  '/data/user/0/com.example.quran_app/cache/qimage$index.png',
             ),
           ),
         );
