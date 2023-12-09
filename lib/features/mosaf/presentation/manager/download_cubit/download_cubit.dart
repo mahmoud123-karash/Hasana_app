@@ -7,27 +7,30 @@ class DownloadCubit extends Cubit<DownloadStates> {
   static DownloadCubit get(context) => BlocProvider.of(context);
 
   final DownLoadRepo downLoadRepo;
-
+  int length = 0;
   void dowmload() async {
-    emit(LoadingDownloadState(0));
-    List<String> images = [];
-    for (var i = 1; i <= 604; i++) {
-      var result = await downLoadRepo.downloadImage(
-        url:
-            'https://raw.githubusercontent.com/mahmoud123-karash/Quran-App-Data/main/quran_images/$i.png',
-        path: 'qimage$i.png',
-      );
+    if (length != 604) {
+      List<String> images = [];
+      emit(LoadingDownloadState(0));
+      for (var i = 1; i <= 604; i++) {
+        var result = await downLoadRepo.downloadImage(
+          url:
+              'https://raw.githubusercontent.com/mahmoud123-karash/Quran-App-Data/main/quran_images/$i.png',
+          path: 'qimage$i.png',
+        );
 
-      result.fold(
-        (failure) {
-          emit(ErrorDownloadState(failure.message));
-        },
-        (imagePath) {
-          images.add(imagePath);
-          emit(LoadingDownloadState(i));
-        },
-      );
+        result.fold(
+          (failure) {
+            emit(ErrorDownloadState(failure.message));
+          },
+          (imagePath) {
+            images.add(imagePath);
+            emit(LoadingDownloadState(i));
+          },
+        );
+      }
+      length = 604;
+      emit(SuccessDownloadState(images));
     }
-    emit(SuccessDownloadState(images));
   }
 }

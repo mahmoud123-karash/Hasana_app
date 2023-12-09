@@ -50,19 +50,19 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyA0ljZ4jfWMPXaC7h4ZWw0EQJQNLtrIXLY',
-    appId: '1:987227873148:android:8f59f744cc4a1bb7e3cef9',
-    messagingSenderId: '987227873148',
-    projectId: 'hassana-app-c3cbc',
-    storageBucket: 'hassana-app-c3cbc.appspot.com',
+    apiKey: 'AIzaSyDy_ZgJjTgZeNRTmH36NYf_ZNrQPLbk9j0',
+    appId: '1:516564235664:android:196d8a657e7934fb476f15',
+    messagingSenderId: '516564235664',
+    projectId: 'hassana-app-9e4c1',
+    storageBucket: 'hassana-app-9e4c1.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDxeQ1jTnQ34zUlfVcHIrIVJI6jJ6_L4mQ',
-    appId: '1:987227873148:ios:35089eb9dae88f07e3cef9',
-    messagingSenderId: '987227873148',
-    projectId: 'hassana-app-c3cbc',
-    storageBucket: 'hassana-app-c3cbc.appspot.com',
+    apiKey: 'AIzaSyBYetYyjGGPy1TFbUbn-iSrQntFL2iTPWg',
+    appId: '1:516564235664:ios:74bcc64a41b6130c476f15',
+    messagingSenderId: '516564235664',
+    projectId: 'hassana-app-9e4c1',
+    storageBucket: 'hassana-app-9e4c1.appspot.com',
     iosBundleId: 'com.example.quranApp',
   );
 }

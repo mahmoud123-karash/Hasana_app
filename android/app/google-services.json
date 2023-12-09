@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "987227873148",
-    "project_id": "hassana-app-c3cbc",
-    "storage_bucket": "hassana-app-c3cbc.appspot.com"
+    "project_number": "516564235664",
+    "project_id": "hassana-app-9e4c1",
+    "storage_bucket": "hassana-app-9e4c1.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:987227873148:android:8f59f744cc4a1bb7e3cef9",
+        "mobilesdk_app_id": "1:516564235664:android:196d8a657e7934fb476f15",
         "android_client_info": {
           "package_name": "com.example.quran_app"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyA0ljZ4jfWMPXaC7h4ZWw0EQJQNLtrIXLY"
+          "current_key": "AIzaSyDy_ZgJjTgZeNRTmH36NYf_ZNrQPLbk9j0"
         }
       ],
       "services": {

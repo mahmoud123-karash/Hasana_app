@@ -23,10 +23,8 @@ class NotificationItemWidget extends StatelessWidget {
             style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w600,
-              wordSpacing: 0,
-              letterSpacing: 0,
             ),
-            textAlign: TextAlign.justify,
+            textAlign: TextAlign.right,
           ),
         ),
       ),
