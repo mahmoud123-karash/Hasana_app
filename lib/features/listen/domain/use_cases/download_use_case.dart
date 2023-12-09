@@ -36,7 +36,7 @@ class DownloadUseCase extends UseCase {
       });
     }
     String filePath = '${(await getTemporaryDirectory()).path}$surahIndex $id';
-    await dioHelper.downloadAudio(
+    await dioHelper.download(
       uri: urls[surahIndex].audioUrl!,
       filePath: filePath,
       onReceiveProgress: onReceiveProgress,

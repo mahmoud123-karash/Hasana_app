@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:quran_app/core/cache/shared_preference.dart';
 import 'package:quran_app/features/mosaf/presentation/views/tafsser_screen.dart';
@@ -18,8 +20,8 @@ class SurahImageWidget extends StatelessWidget {
       },
       child: SizedBox(
         height: size(context).height - 200,
-        child: Image.asset(
-          image,
+        child: Image.file(
+          File(image),
           color: cache_helper.getData(key: 'isdark') ? whiteColor : blackColor,
           fit: BoxFit.cover,
         ),

@@ -2,8 +2,20 @@ abstract class DownloadStates {}
 
 class InitialDownloadState extends DownloadStates {}
 
-class LoadingDownloadState extends DownloadStates {}
+class LoadingDownloadState extends DownloadStates {
+  final int count;
 
-class SuccessDownloadState extends DownloadStates {}
+  LoadingDownloadState(this.count);
+}
 
-class ErrorDownloadState extends DownloadStates {}
+class SuccessDownloadState extends DownloadStates {
+  final List<String> paths;
+
+  SuccessDownloadState(this.paths);
+}
+
+class ErrorDownloadState extends DownloadStates {
+  final String message;
+
+  ErrorDownloadState(this.message);
+}

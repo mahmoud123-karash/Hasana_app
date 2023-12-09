@@ -6,6 +6,7 @@ import 'package:quran_app/features/home/presentation/views/widgets/content_item_
 import 'package:quran_app/features/home/presentation/views/widgets/content_text_widget.dart';
 import 'package:quran_app/features/home/presentation/views/widgets/home_text_widget.dart';
 import 'package:quran_app/features/home/presentation/views/widgets/badge_notification_icon_widget.dart';
+import 'package:quran_app/features/mosaf/presentation/manager/download_cubit/download_cubit.dart';
 import '../../../../core/contants/constants.dart';
 import '../../../../core/utils/firebase_messging.dart';
 import '../../../../generated/l10n.dart';
@@ -23,6 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     NotificationCubit.get(context).getNotification();
+    DownloadCubit.get(context).dowmload();
     onMessage();
     bool isSub = cache_helper.getData(key: 'issub') ?? true;
     if (isSub) {

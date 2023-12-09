@@ -1,11 +1,33 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quran_app/features/mosaf/domain/repo/download_repo.dart';
 import 'package:quran_app/features/mosaf/presentation/manager/download_cubit/download_states.dart';
 
 class DownloadCubit extends Cubit<DownloadStates> {
-  DownloadCubit() : super(InitialDownloadState());
+  DownloadCubit(this.downLoadRepo) : super(InitialDownloadState());
   static DownloadCubit get(context) => BlocProvider.of(context);
 
-  void dowmload() {
-    emit(LoadingDownloadState());
+  final DownLoadRepo downLoadRepo;
+
+  void dowmload() async {
+    emit(LoadingDownloadState(0));
+    List<String> images = [];
+    for (var i = 1; i <= 604; i++) {
+      var result = await downLoadRepo.downloadImage(
+        url:
+            'https://raw.githubusercontent.com/mahmoud123-karash/Quran-App-Data/main/quran_images/$i.png',
+        path: 'qimage$i.png',
+      );
+
+      result.fold(
+        (failure) {
+          emit(ErrorDownloadState(failure.message));
+        },
+        (imagePath) {
+          images.add(imagePath);
+          emit(LoadingDownloadState(i));
+        },
+      );
+    }
+    emit(SuccessDownloadState(images));
   }
 }

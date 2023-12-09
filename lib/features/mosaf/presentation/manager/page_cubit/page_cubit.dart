@@ -12,14 +12,6 @@ class PageCubit extends Cubit<PageStates> {
   static PageCubit get(context) => BlocProvider.of(context);
 
   int index = 1000;
-  List<String> qImages = [];
-  void readImages() {
-    if (qImages.isEmpty) {
-      for (int i = 1; i <= 604; i++) {
-        qImages.add("assets/quran_images/$i.png");
-      }
-    }
-  }
 
   void savePage(value) {
     index = value;

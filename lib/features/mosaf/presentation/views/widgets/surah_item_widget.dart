@@ -4,11 +4,12 @@ import 'page_data_widget.dart';
 import 'surah_image_widget.dart';
 
 class SurahItemWidget extends StatelessWidget {
-  const SurahItemWidget(
-      {super.key,
-      required this.index,
-      required this.image,
-      required this.count});
+  const SurahItemWidget({
+    super.key,
+    required this.index,
+    required this.image,
+    required this.count,
+  });
   final int index;
   final String image;
   final int count;

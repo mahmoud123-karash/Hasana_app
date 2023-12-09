@@ -12,6 +12,8 @@ import 'package:quran_app/features/tasbih/domain/use_cases/update_tasbih_use_cas
 import '../../features/listen/data/data_source/audio_remote_data_source.dart';
 import '../../features/listen/data/repo/audio_repo_imol.dart';
 import '../../features/listen/domain/use_cases/download_use_case.dart';
+import '../../features/mosaf/data/data_sources/download_remote_data_source.dart';
+import '../../features/mosaf/data/repo/download_repo_impl.dart';
 import '../../features/notification/data/data_sources/notification_remote_data_source.dart';
 import '../../features/tasbih/domain/use_cases/add_new_tasbih_use_case.dart';
 import '../../features/tasbih/domain/use_cases/zero_count_tasabih_use_case.dart';
@@ -82,6 +84,14 @@ void setLocator() {
   getIt.registerSingleton<NotificationRepoImpl>(
     NotificationRepoImpl(
       NotificationRemoteDataSourceImpl(),
+    ),
+  );
+
+  getIt.registerSingleton<DownloadRepoImpl>(
+    DownloadRepoImpl(
+      DownloadRemoteDataSourceImpl(
+        getIt.get<DioHelper>(),
+      ),
     ),
   );
 }

@@ -7,6 +7,7 @@ import 'package:quran_app/core/contants/hive_boxes_name.dart';
 import 'package:quran_app/core/services/get_it.dart';
 import 'package:quran_app/core/services/services.dart';
 import 'package:quran_app/features/listen/domain/entites/reciter_entity.dart';
+import 'package:quran_app/features/mosaf/data/repo/download_repo_impl.dart';
 import 'package:quran_app/features/mosaf/domain/repo/tafsser_repo.dart';
 import 'package:quran_app/features/mosaf/presentation/manager/page_cubit/page_cubit.dart';
 import 'package:quran_app/features/mosaf/presentation/manager/tafsser_cubit/tafsser_cubit.dart';
@@ -26,6 +27,7 @@ import 'package:quran_app/features/tasbih/domain/use_cases/update_tasbih_use_cas
 import 'package:quran_app/features/tasbih/domain/use_cases/zero_count_tasabih_use_case.dart';
 import 'package:quran_app/features/tasbih/presentation/manager/tasbih_cubit/tasbih_cubit.dart';
 import 'core/utils/utils.dart';
+import 'features/mosaf/presentation/manager/download_cubit/download_cubit.dart';
 import 'features/tasbih/domain/use_cases/add_new_tasbih_use_case.dart';
 import 'features/tasbih/domain/use_cases/delete_tasbih_use_case.dart';
 import 'generated/l10n.dart';
@@ -63,6 +65,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(
+          create: (context) => DownloadCubit(
+            getIt.get<DownloadRepoImpl>(),
+          ),
+        ),
         BlocProvider(
           create: (context) => NotificationCubit(
             getIt.get<NotificationRepoImpl>(),

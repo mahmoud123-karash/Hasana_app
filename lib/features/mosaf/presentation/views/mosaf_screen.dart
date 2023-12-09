@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quran_app/features/mosaf/presentation/manager/download_cubit/download_cubit.dart';
+import 'package:quran_app/features/mosaf/presentation/manager/download_cubit/download_states.dart';
 import 'package:quran_app/features/mosaf/presentation/manager/page_cubit/page_cubit.dart';
 import 'package:quran_app/features/mosaf/presentation/views/mosaf_drawer_widget.dart';
+import 'package:quran_app/features/mosaf/presentation/views/widgets/error_moasf_widget.dart';
 import 'package:quran_app/features/mosaf/presentation/views/widgets/page_view_widget.dart';
+
+import 'widgets/progress_loading_pages_widget.dart';
 
 class MosafScreen extends StatelessWidget {
   const MosafScreen({super.key});
@@ -11,7 +17,19 @@ class MosafScreen extends StatelessWidget {
     return Scaffold(
       key: PageCubit.get(context).mosafKey,
       drawer: const MosafDrawerWidget(),
-      body: const PageViewWidget(),
+      body: BlocBuilder<DownloadCubit, DownloadStates>(
+        builder: (context, state) {
+          if (state is SuccessDownloadState) {
+            return PageViewWidget(images: state.paths);
+          } else if (state is ErrorDownloadState) {
+            return ErrorMoasfWidget(message: state.message);
+          } else if (state is LoadingDownloadState) {
+            return ProgressLoadingPagesWidget(count: state.count);
+          } else {
+            return Container();
+          }
+        },
+      ),
     );
   }
 }

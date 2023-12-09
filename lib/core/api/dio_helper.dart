@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:path_provider/path_provider.dart';
 
 class DioHelper {
   final Dio dio;
@@ -12,7 +11,7 @@ class DioHelper {
     return reciters.data;
   }
 
-  Future<String> downloadAudio({
+  Future download({
     required String uri,
     required String filePath,
     required Function(int, int) onReceiveProgress,
@@ -22,6 +21,16 @@ class DioHelper {
       filePath,
       onReceiveProgress: onReceiveProgress,
     );
-    return filePath;
+  }
+
+  Future downloadImage({
+    required String uri,
+  }) async {
+    var response = await dio.get(
+      uri,
+      options: Options(responseType: ResponseType.bytes),
+    );
+
+    return response;
   }
 }
