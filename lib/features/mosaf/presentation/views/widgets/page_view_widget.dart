@@ -42,7 +42,7 @@ class _PageViewWidgetState extends State<PageViewWidget> {
             itemBuilder: (context, index) => SurahItemWidget(
               index: index,
               image:
-                  '/data/user/0/com.example.quran_app/cache/qimage$index.png',
+                  '/data/user/0/com.example.quran_app/cache/qimage${index + 1}.png',
             ),
           ),
         );

@@ -1,7 +1,6 @@
-// ignore_for_file: prefer_const_constructors, duplicate_ignore, unused_import
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:quran_app/core/contants/constants.dart';
 
 ThemeData lightmode = ThemeData(
@@ -13,11 +12,14 @@ ThemeData lightmode = ThemeData(
     textColor: blackColor,
   ),
   iconTheme: IconThemeData(color: myColor),
-  drawerTheme: DrawerThemeData(backgroundColor: Colors.white, elevation: 0.0),
+  drawerTheme: const DrawerThemeData(
+    backgroundColor: Colors.white,
+    elevation: 0.0,
+  ),
   primarySwatch: Colors.green,
   textTheme: TextTheme(
-    bodyMedium: TextStyle(color: blackColor),
-    bodyLarge: TextStyle(
+    bodyMedium: GoogleFonts.markaziText(color: blackColor),
+    bodyLarge: GoogleFonts.markaziText(
       color: blackColor,
     ),
   ),
@@ -25,8 +27,8 @@ ThemeData lightmode = ThemeData(
   appBarTheme: AppBarTheme(
     iconTheme: IconThemeData(color: blackColor),
     backgroundColor: Colors.white,
-    titleTextStyle: TextStyle(color: myColor, fontSize: 25),
-    systemOverlayStyle: SystemUiOverlayStyle(
+    titleTextStyle: GoogleFonts.markaziText(color: myColor, fontSize: 25),
+    systemOverlayStyle: const SystemUiOverlayStyle(
       statusBarColor: Colors.white,
       statusBarIconBrightness: Brightness.dark,
     ),
@@ -60,14 +62,17 @@ ThemeData darkmode = ThemeData(
   ),
   primarySwatch: Colors.green,
   textTheme: TextTheme(
-    bodyMedium: TextStyle(color: blackColor),
-    bodyLarge: TextStyle(color: blackColor),
+    bodyMedium: GoogleFonts.markaziText(color: blackColor),
+    bodyLarge: GoogleFonts.markaziText(color: blackColor),
   ),
   scaffoldBackgroundColor: darkbackground,
   appBarTheme: AppBarTheme(
     iconTheme: IconThemeData(color: myColor),
     backgroundColor: darkbackground,
-    titleTextStyle: TextStyle(color: myColor, fontSize: 25),
+    titleTextStyle: GoogleFonts.markaziText(
+      color: myColor,
+      fontSize: 25,
+    ),
     systemOverlayStyle: SystemUiOverlayStyle(
       statusBarColor: darkbackground,
       statusBarIconBrightness: Brightness.light,
@@ -84,4 +89,4 @@ ThemeData darkmode = ThemeData(
   ),
 );
 
-Color darkbackground = Color(0xFF003B36);
+Color darkbackground = const Color(0xFF003B36);

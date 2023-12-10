@@ -28,7 +28,7 @@ class _TafsserScreenState extends State<TafsserScreen> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          "صفحة  ${page + 1}",
+          "صفحة  $page",
           style: const TextStyle(
             fontSize: 22,
           ),

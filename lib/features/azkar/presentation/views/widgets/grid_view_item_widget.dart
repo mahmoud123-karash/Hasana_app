@@ -43,7 +43,7 @@ class GridViewItemWidget extends StatelessWidget {
               children: [
                 AzkarItemImageWidget(image: image),
                 SizedBox(
-                  height: name.length < 20 ? 25 : 15,
+                  height: name.length < 18 ? 25 : 20,
                 ),
                 AzkarItemTextWidget(name: name),
               ],

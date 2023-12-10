@@ -2,6 +2,7 @@
 
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:quran/quran.dart';
@@ -70,8 +71,10 @@ class ItemSurahWidget extends StatelessWidget {
             children: [
               Text(
                 getVerseEndSymbol(index + 1),
-                style: const TextStyle(
+                style: GoogleFonts.lateef(
                   fontSize: 25,
+                  fontStyle: FontStyle.normal,
+                  letterSpacing: 0,
                 ),
               ),
               const SizedBox(
@@ -81,10 +84,9 @@ class ItemSurahWidget extends StatelessWidget {
                 Intl.getCurrentLocale() == 'ar'
                     ? getSurahNameArabic(index + 1)
                     : getSurahName(index + 1),
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  fontFamily: textfamilyAus2,
                 ),
               ),
               const Spacer(),

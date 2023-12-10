@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:quran/quran.dart' as quran;
 import 'package:quran_app/core/contants/constants.dart';
 import 'package:quran_app/features/home/domain/repo/home_repo.dart';
@@ -34,9 +35,10 @@ class AyatDayWidget extends StatelessWidget {
                   randomAyah,
                   verseEndSymbol: true,
                 ),
-                style: const TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w600,
+                style: GoogleFonts.lateef(
+                  fontSize: 27,
+                  fontWeight: FontWeight.w500,
+                  letterSpacing: 0,
                 ),
                 textAlign: TextAlign.center,
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:quran_app/core/contants/constants.dart';
 
 class VerseTextWidget extends StatelessWidget {
@@ -10,9 +11,9 @@ class VerseTextWidget extends StatelessWidget {
     return Text(
       textWidthBasis: TextWidthBasis.parent,
       verseText,
-      style: TextStyle(
+      style: GoogleFonts.lateef(
         color: blackColor,
-        fontSize: 20,
+        fontSize: 27,
         fontWeight: FontWeight.w400,
         letterSpacing: 0,
       ),

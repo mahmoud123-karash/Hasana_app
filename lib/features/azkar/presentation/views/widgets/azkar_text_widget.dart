@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:quran_app/core/cache/shared_preference.dart';
 import 'package:quran_app/generated/l10n.dart';
 
@@ -23,9 +24,9 @@ class AzkarTextWidget extends StatelessWidget {
         children: [
           Text(
             content,
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
+            style: GoogleFonts.lateef(
+              fontSize: 27,
+              fontWeight: FontWeight.w500,
               color:
                   cache_helper.getData(key: 'isdark') ? whiteColor : blackColor,
             ),

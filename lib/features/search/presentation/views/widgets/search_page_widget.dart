@@ -12,7 +12,7 @@ class SerachPageWidget extends StatelessWidget {
       {super.key,
       required this.controller,
       required this.cubit,
-      required this.state});
+      required this.state,});
   final TextEditingController controller;
   final SearchCubit cubit;
   final SearchStates state;

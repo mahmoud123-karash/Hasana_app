@@ -1,6 +1,7 @@
 // ignore_for_file: depend_on_referenced_packages
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:quran/quran.dart' as quran;
 import 'package:quran_app/core/cache/shared_preference.dart';
 import 'package:quran_app/core/quran_data/surah_page.dart';
@@ -32,9 +33,10 @@ class ListTileSurahWidget extends StatelessWidget {
         Intl.getCurrentLocale() == 'ar'
             ? quran.getVerseEndSymbol(index + 1)
             : (index + 1).toString(),
-        style: TextStyle(
+        style: GoogleFonts.lateef(
           fontSize: 25,
           color: cache_helper.getData(key: 'isdark') ? whiteColor : blackColor,
+          letterSpacing: 0,
         ),
       ),
       title: Text(
@@ -44,7 +46,6 @@ class ListTileSurahWidget extends StatelessWidget {
         style: TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.bold,
-          fontFamily: textfamilyAus1,
           color: cache_helper.getData(key: 'isdark') ? whiteColor : blackColor,
         ),
       ),

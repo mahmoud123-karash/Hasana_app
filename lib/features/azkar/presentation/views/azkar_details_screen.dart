@@ -62,13 +62,18 @@ class _AzkarDetailsScreenState extends State<AzkarDetailsScreen> {
                     height: 30,
                   ),
                   SwiperAzkarWidget(
-                      azkar: azkar, swiperController: swiperController),
+                    azkar: azkar,
+                    swiperController: swiperController,
+                  ),
                   const SizedBox(
                     height: 30,
                   ),
                   ControlSwiperWidget(
                     shareTap: () {
-                      int index = cache_helper.getData(key: 'index') ?? 1;
+                      int index = cache_helper.getData(
+                            key: 'index',
+                          ) ??
+                          1;
                       SwiperCubit.get(context).shareAzkarText(
                         text: azkar[index].content!,
                         context: context,

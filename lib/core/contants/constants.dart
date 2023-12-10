@@ -14,10 +14,6 @@ Color? gColor = Colors.black45;
 Color? secondColor = const Color(0xFFE6EBE0);
 Color? thirdColor = const Color(0xFFE4F0D0);
 
-String textfamilyAus1 = 'noorehira';
-String textfamilyAus2 = 'KFGQPC';
-String textfamily = 'diodrum';
-
 var dayname = JHijri.now().dayName;
 var day = JHijri.now().day;
 var monthName = JHijri.now().monthName;
