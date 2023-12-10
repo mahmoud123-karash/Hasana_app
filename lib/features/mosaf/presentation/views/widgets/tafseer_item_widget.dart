@@ -9,8 +9,15 @@ import 'copy_text_row_widget.dart';
 import 'tafsser_spacer_widget.dart';
 
 class TAfsserItemWidget extends StatelessWidget {
-  const TAfsserItemWidget({super.key, required this.data});
+  const TAfsserItemWidget({
+    super.key,
+    required this.data,
+    required this.firstVerse,
+    required this.lastVerse,
+  });
   final PageDataEntity data;
+  final int firstVerse;
+  final int lastVerse;
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +26,10 @@ class TAfsserItemWidget extends StatelessWidget {
       child: ListView(
         children: [
           AyaNumTafsserWidget(
-            verseNum: data.aya.toString(),
+            verseNum: data.aya!,
             surahName: data.suraName!,
+            firstVerse: firstVerse,
+            lastVerse: lastVerse,
           ),
           const SizedBox(
             height: 25,

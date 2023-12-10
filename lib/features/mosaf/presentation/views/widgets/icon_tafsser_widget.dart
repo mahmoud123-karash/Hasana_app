@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:quran_app/core/contants/constants.dart';
 
 class IconTafsserWidget extends StatelessWidget {
-  const IconTafsserWidget({super.key, required this.icon, required this.ontap});
+  const IconTafsserWidget(
+      {super.key,
+      required this.icon,
+      required this.ontap,
+      required this.color});
   final IconData icon;
   final VoidCallback ontap;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +25,10 @@ class IconTafsserWidget extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Center(
-            child: Icon(icon),
+            child: Icon(
+              icon,
+              color: color,
+            ),
           ),
         ),
       ),

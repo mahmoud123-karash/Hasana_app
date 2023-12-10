@@ -24,6 +24,8 @@ class TafsserSwiperWidget extends StatelessWidget {
             itemCount: list.length,
             itemBuilder: (context, index) => TAfsserItemWidget(
               data: list[index],
+              firstVerse: list.first.aya!,
+              lastVerse: list.last.aya!,
             ),
           ),
         ),
